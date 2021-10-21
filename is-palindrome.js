@@ -17,11 +17,11 @@ function isPalindrome(word, strict, ignore) {
 
         do {
             startingIndex++; // incriment the index
-        } while (ignore.includes(charcters[startingIndex]) && !strict) // keep incrimenting the index until you hit a character that isn't a space (if not in strict mode)
+        } while (ignore.includes(charcters[startingIndex])) // keep incrimenting the index until you hit a character that isn't included in the list fo characters to ignore
 
         do {
             endingIndex--; // do the same for the other index, but subract rather than add
-        } while (ignore.includes(charcters[endingIndex]) && !strict)
+        } while (ignore.includes(charcters[endingIndex]))
         
         let testLetter1 = charcters[startingIndex]; // assign the first letter to be compared
         let testLetter2 = charcters[endingIndex]; // assign the other letter to be compared
@@ -74,7 +74,9 @@ function logWord(word, strict, ignore) {
 
 logWord('goose');
 logWord('Racecar');
+logWord('mom');
+logWord('dad');
 logWord('Racecar', false);
-
+logWord('Go deliver a dare, vile dog!', false, [',', '!', ' '])
 logWord('Are we not drawn onward, we few, drawn onward to new era', false, [' ']);
 logWord('Ed, I saw Harpo Marx ram Oprah W. aside.', false, [',', '.', ' '])
